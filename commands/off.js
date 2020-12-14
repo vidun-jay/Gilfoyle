@@ -1,18 +1,20 @@
 exports.run = async (client, message, args, level) => {
   const friendly = client.config.permLevels.find(l => l.level === level).name;
-  message.reply(`Your permission level is: ${level} - ${friendly}`);
+  channel = client.channels.cache.get('775394548612202568');
+  channel.send('Server is down.');
+
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: true,
-  aliases: [],
-  permLevel: "User"
+  aliases: ["d", "down"],
+  permLevel: "Server Owner"
 };
 
 exports.help = {
-  name: "mylevel",
+  name: "off",
   category: "Miscelaneous",
-  description: "Tells you your permission level for the current message location.",
-  usage: "mylevel"
+  description: "Sets server status to offline",
+  usage: "off"
 };
